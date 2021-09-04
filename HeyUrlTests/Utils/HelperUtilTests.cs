@@ -110,14 +110,14 @@ namespace HeyUrl.Utils.Tests
 		{
 			// arrange
 
-			//correct
+			//-correct
 			string url_1 = "CBEAB";
 			string url_2 = "cbeab";
 			string url_2_1 = "aBcdE";
 
-			//incorrect
+			//-incorrect
 			string url_3 = "CBEABA";
-			string url_4 = "CBEAB";
+			string url_4 = "CBEA";
 			string url_5 = "CB5AB";
 			string url_6 = "CB5A?";
 			string url_7 = "cbeaba";
@@ -126,9 +126,12 @@ namespace HeyUrl.Utils.Tests
 			string url_10 = "";
 
 			// act
+			//true
 			bool isValid_1 = HelperUtil.IsValidShortUrl(url_1);
 			bool isValid_2 = HelperUtil.IsValidShortUrl(url_2);
 			bool isValid_2_1 = HelperUtil.IsValidShortUrl(url_2_1);
+
+			//false
 			bool isValid_3 = HelperUtil.IsValidShortUrl(url_3);
 			bool isValid_4 = HelperUtil.IsValidShortUrl(url_4);
 			bool isValid_5 = HelperUtil.IsValidShortUrl(url_5);
@@ -143,6 +146,7 @@ namespace HeyUrl.Utils.Tests
 			Assert.IsTrue(isValid_1);
 			Assert.IsTrue(isValid_2);
 			Assert.IsTrue(isValid_2_1);
+
 			Assert.IsFalse(isValid_3);
 			Assert.IsFalse(isValid_4);
 			Assert.IsFalse(isValid_5);
