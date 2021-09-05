@@ -71,16 +71,17 @@ namespace HeyUrl.Utils.Tests
 		public void IsValidCorrectUrlTest()
 		{
 			// arrange
+			string mes1 = "OK";
+
 			string url_1 = "www.google.com";
 			string url_2 = "drive.google.com/file/d/1FTxGaWiH3kgbP-m7eaCdeKYDexZTNFu1";
 			string url_3 = "www.rbc.ru";
 			string url_4 = $"https://drive.google.com/file/d/1Eq2RbIiIcAcy4AxiElSutcu2rv_Y21zZ/view?usp=sharing";
 			string url_5 = $"http://drive.google.com/file/d/1Eq2RbIiIcAcy4AxiElSutcu2rv_Y21zZ/view?usp=sharing";
 			string url_6 = "drive.google.com/file/d/1FTxGaWiH3kgbP-m7eaCdeKYDexZTNFu1";
-			string url_7 = $"https://www.microsoft.com/en-us/store/p/global-atm-map/9nblggh4nfpd"; 
-
-			string mes1 = "OK";
-
+			string url_7 = $"https://www.microsoft.com/en-us/store/p/global-atm-map/9nblggh4nfpd";
+			string url_8 = $"https://www.youtube.com/watch?time_continue=2&v=1Sggj3JMGi8";
+			
 			// act
 			Tuple<bool, string> isValid_1 = HelperUtil.IsValidUrl(url_1);
 			Tuple<bool, string> isValid_2 = HelperUtil.IsValidUrl(url_2);
@@ -89,7 +90,7 @@ namespace HeyUrl.Utils.Tests
 			Tuple<bool, string> isValid_5 = HelperUtil.IsValidUrl(url_5);
 			Tuple<bool, string> isValid_6 = HelperUtil.IsValidUrl(url_6);
 			Tuple<bool, string> isValid_7 = HelperUtil.IsValidUrl(url_7);
-
+			Tuple<bool, string> isValid_8 = HelperUtil.IsValidUrl(url_8);
 
 			// assert
 			Assert.IsTrue(isValid_1.Item1);
@@ -103,6 +104,7 @@ namespace HeyUrl.Utils.Tests
 			Assert.IsTrue(isValid_5.Item1);
 			Assert.IsTrue(isValid_6.Item1);
 			Assert.IsTrue(isValid_7.Item1);
+			Assert.IsTrue(isValid_8.Item1);
 		}
 
 		[TestMethod()]
@@ -120,10 +122,7 @@ namespace HeyUrl.Utils.Tests
 			string url_4 = "CBEA";
 			string url_5 = "CB5AB";
 			string url_6 = "CB5A?";
-			string url_7 = "cbeaba";
-			string url_8 = "www.rbc.ru";
-			string url_9 = $"https://drive.google.com/file/d/1Eq2RbIiIcAcy4AxiElSutcu2rv_Y21zZ/view?usp=sharing";
-			string url_10 = "";
+			string url_7 = "cbeaba";					 
 
 			// act
 			//true
@@ -137,10 +136,6 @@ namespace HeyUrl.Utils.Tests
 			bool isValid_5 = HelperUtil.IsValidShortUrl(url_5);
 			bool isValid_6 = HelperUtil.IsValidShortUrl(url_6);
 			bool isValid_7 = HelperUtil.IsValidShortUrl(url_7);
-			bool isValid_8 = HelperUtil.IsValidShortUrl(url_8);
-			bool isValid_9 = HelperUtil.IsValidShortUrl(url_9);
-			bool isValid_10 = HelperUtil.IsValidShortUrl(url_10);
-
 
 			// assert
 			Assert.IsTrue(isValid_1);
@@ -152,9 +147,6 @@ namespace HeyUrl.Utils.Tests
 			Assert.IsFalse(isValid_5);
 			Assert.IsFalse(isValid_6);
 			Assert.IsFalse(isValid_7);
-			Assert.IsFalse(isValid_8);
-			Assert.IsFalse(isValid_9);
-			Assert.IsFalse(isValid_10);
 		}
 	}
 }

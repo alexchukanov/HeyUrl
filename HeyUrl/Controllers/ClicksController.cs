@@ -53,7 +53,7 @@ namespace HeyUrl.Controllers
                     _context.Add(click);
                     await _context.SaveChangesAsync();
 
-                    UriBuilder uriBuilder = new UriBuilder(url.OriginalUrl);
+                    UriBuilder uriBuilder = new UriBuilder(url.OriginalUrl.Trim());
                     return Redirect(uriBuilder.Uri.ToString());
                 }
                 else

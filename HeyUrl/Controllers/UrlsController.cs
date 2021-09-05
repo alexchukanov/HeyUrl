@@ -62,13 +62,13 @@ namespace HeyUrl.Controllers
 		[Route("Urls/Create")]
 		public IActionResult Create(string originalUrl)
 		{
-			TempData["Notice"] = null;
-			TempData["OriginalUrl"] = originalUrl;
-
 			if (originalUrl != null)
 			{
 				originalUrl = originalUrl.Trim();
 			}
+
+			TempData["OriginalUrl"] = originalUrl;
+			TempData["Notice"] = null;
 
 			var valRes = HelperUtil.IsValidUrl(originalUrl);
 
@@ -105,7 +105,7 @@ namespace HeyUrl.Controllers
 		[HttpPost]
 		[ValidateAntiForgeryToken]
 		[Route("Urls/Save")]
-		public async Task<IActionResult> Save([Bind("ShortUrl,OriginalUrl")] CreateViewModel cvm)
+		public async Task<IActionResult> Save(CreateViewModel cvm)
 		{
 			if (ModelState.IsValid)
 			{
