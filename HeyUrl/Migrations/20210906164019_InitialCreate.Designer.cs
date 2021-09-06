@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HeyUrl.Migrations
 {
     [DbContext(typeof(HeyUrlContext))]
-    [Migration("20210903104725_InitialCreate")]
+    [Migration("20210906164019_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,15 +28,18 @@ namespace HeyUrl.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Browser")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("Clicked")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Platform")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ShortUrl")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

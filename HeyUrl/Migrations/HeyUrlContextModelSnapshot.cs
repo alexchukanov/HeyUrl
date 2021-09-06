@@ -26,15 +26,18 @@ namespace HeyUrl.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Browser")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("Clicked")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Platform")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ShortUrl")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

@@ -12,9 +12,9 @@ namespace HeyUrl.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ShortUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Browser = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Platform = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ShortUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Browser = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Platform = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Clicked = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>

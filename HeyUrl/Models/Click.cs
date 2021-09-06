@@ -8,12 +8,16 @@ namespace HeyUrl.Models
 {
 	public class Click
 	{
+		[Required]
 		public Guid Id { get; set; }
+		[Required]
 		public string ShortUrl { get; set; }
+		[Required]
 		public string Browser { get; set; }
+		[Required]
 		public string Platform { get; set; }
-
-		[DataType(DataType.Date)]
+		[Required]
+		[DataType(DataType.Date)]		
 		public DateTime Clicked { get; set; }
 
 	}
